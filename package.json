@@ -4,7 +4,7 @@
   "license": "MIT",
   "version": "0.1.0",
   "author": {
-    "name": "Electron Test App"
+    "name": "syjn99"
   },
   "main": "./src/main/main.ts",
   "scripts": {
