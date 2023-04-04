@@ -1,6 +1,6 @@
 {
-  "productName": "ElectronReact",
-  "appId": "org.erb.ElectronReact",
+  "productName": "JunElectronTest",
+  "appId": "com.syjn99.JunElectronTest",
   "asar": true,
   "asarUnpack": "**\\*.{node,dll}",
   "files": ["dist", "node_modules", "package.json"],
