@@ -1,12 +1,10 @@
 {
-  "name": "electron-react-boilerplate",
-  "version": "4.6.0",
-  "description": "A foundation for scalable desktop apps",
+  "name": "electron-test",
+  "description": "Testing deployment enviornment for electron",
   "license": "MIT",
+  "version": "0.1.0",
   "author": {
-    "name": "Electron React Boilerplate Maintainers",
-    "email": "electronreactboilerplate@gmail.com",
-    "url": "https://github.com/electron-react-boilerplate"
+    "name": "Electron Test App"
   },
   "main": "./dist/main/main.js",
   "scripts": {
