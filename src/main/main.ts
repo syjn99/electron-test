@@ -107,6 +107,7 @@ app
   .whenReady()
   .then(() => {
     createWindow();
+    autoUpdater.checkForUpdatesAndNotify();
     app.on('activate', () => {
       if (mainWindow === null) createWindow();
     });
