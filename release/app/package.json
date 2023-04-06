@@ -2,7 +2,7 @@
   "name": "electron-test",
   "description": "Testing deployment enviornment for electron",
   "license": "MIT",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "author": {
     "name": "Electron Test App"
   },
