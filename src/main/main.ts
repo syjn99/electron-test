@@ -1,9 +1,18 @@
 /* eslint-disable prefer-template */
 /* eslint global-require: off, no-console: off, promise/always-return: off */
 import path from 'path';
+import log from 'electron-log';
 import { app, BrowserWindow, ipcMain, shell } from 'electron';
 import { autoUpdater } from 'electron-updater';
 import MenuBuilder from './menu';
+
+class AppUpdater {
+  constructor() {
+    log.transports.file.level = 'info';
+    autoUpdater.logger = log;
+    autoUpdater.checkForUpdatesAndNotify();
+  }
+}
 
 ipcMain.on('ipc-example', async (event) => {
   event.reply('ipc-example', app.getVersion());
@@ -67,35 +76,10 @@ const createWindow = async () => {
     shell.openExternal(edata.url);
     return { action: 'deny' };
   });
+
+  // eslint-disable-next-line no-new
+  new AppUpdater();
 };
-
-autoUpdater.on('checking-for-update', () => {
-  console.log('Checking for update...');
-});
-
-autoUpdater.on('update-available', (info) => {
-  console.log('Update available.', 'Info:', info);
-});
-
-autoUpdater.on('update-not-available', (info) => {
-  console.log('Update not available.', 'Info:', info);
-});
-
-autoUpdater.on('error', (err) => {
-  console.error('Error in auto-updater.', err);
-});
-
-autoUpdater.on('download-progress', (progressObj) => {
-  let logMessage = 'Download speed: ' + progressObj.bytesPerSecond;
-  logMessage = logMessage + ' - Downloaded ' + progressObj.percent + '%';
-  logMessage =
-    logMessage + ' (' + progressObj.transferred + '/' + progressObj.total + ')';
-  console.log(logMessage);
-});
-
-autoUpdater.on('update-downloaded', (info) => {
-  console.log('Update downloaded', 'Info:', info);
-});
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
